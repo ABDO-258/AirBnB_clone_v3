@@ -23,7 +23,7 @@ def teardown_app(exception):
 def errorhandler_404(exc):
     return {
         "error": "Not found"
-    }
+    }, 404
 
 
 if __name__ == "__main__":
