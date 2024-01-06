@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """hbnb API START"""
-from api.v1.views import app_views 
+from api.v1.views import app_views
 from flask import Flask
 from models import storage
 import os
@@ -17,6 +17,7 @@ app.register_blueprint(app_views)
 def teardown_app(exception):
     """closes the storage on teardown"""
     storage.close()
+
 
 @app.errorhandler(404)
 def errorhandler_404(exc):
