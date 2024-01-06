@@ -17,10 +17,11 @@ def states_get(state_id=None):
             states_list.append(state_obj.to_dict())
         return jsonify(states_list)
     else:
-        state_by_id = storage.get(State,state_id)
+        state_by_id = storage.get(State, state_id)
         if state_by_id is None:
             abort(404)
         return jsonify(state_by_id.to_dict())
+
 
 @app_views.route("/states/<state_id>", strict_slashes=False,
                  methods=["DELETE"])
@@ -33,17 +34,19 @@ def delete_state_id(state_id):
     storage.save()
     return jsonify({}), 200
 
+
 @app_views.route("/states", methods=["POST"], strict_slashes=False)
 def create():
     """create a new state"""
     data = request.get_json(silent=True, force=True)
     if not data:
         abort(400, "Not a JSON")
-    if "name"  not in data:
+    if "name" not in data:
         abort(400, "Missing name")
     state = State(**data)
     state.save()
     return jsonify(state.to_dict()), 201
+
 
 @app_views.route("/states/<state_id>", strict_slashes=False,
                  methods=["PUT"])
