@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""amenities pages"""
+"""user pages"""
 from api.v1.views import app_views
 from models import storage
-from models.users import User
+from models.user import User
 from flask import abort, request, jsonify
 
 
