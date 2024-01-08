@@ -2,11 +2,13 @@
 """hbnb API START"""
 from api.v1.views import app_views
 from flask import Flask
+from flask_cors import CORS
 from models import storage
 import os
 
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 
 # Register the blueprint
