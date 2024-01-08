@@ -23,7 +23,7 @@ def cities_by_state(state_id):
 
 
 @app_views.route("/cities/<city_id>", strict_slashes=False, methods=["GET"])
-def cities_get(city_id=None):
+def cities_get(city_id):
     """ get all cities with id"""
     cities_list = []
     if city_id is None:
